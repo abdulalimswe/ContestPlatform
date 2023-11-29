@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>LogIn</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+	<div th:insert="NavBar.html :: NavBar"></div>
+	<section class="vh-100 bg-image pt-3"
+		style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+		<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+			<div class="container h-100">
+				<div class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+						<div class="card" style="border-radius: 15px;">
+							<div class="card-body p-5">
+
+								<form action="/profile" method="POST">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Email address</label>
+										<input type="email" name="email" class="form-control" id="exampleInputEmail1"
+											aria-describedby="emailHelp">
+										<!--warning message-->
+										<p class="pt-2 text-danger" th:if="${warning}" th:text="${warning}"></p>
+
+									</div>
+									<div class="mb-3">
+										<label for="exampleInputPassword1" class="form-label">Password</label>
+										<input type="password" name="password" class="form-control"
+											id="exampleInputPassword1">
+										<!--warning message-->
+										<p class="pt-2 text-danger" th:if="${warningPass}" th:text="${warningPass}"></p>
+									</div>
+									
+									<button type="submit" class="btn btn-primary">Submit</button>
+									<p class="text-center text-muted mt-5 mb-0">Have don't an account? <a
+											href="/register" class="fw-bold text-body"><u>Register here</u></a></p>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Bootstrap-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+
+</body>
+
+</html>
