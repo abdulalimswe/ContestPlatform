@@ -67,14 +67,7 @@ public class MainController {
 	}
 	
 	
-	@GetMapping("/createProblem")
-	public String createProblem() {
-		return "createProblem.html";
-	}
-	@GetMapping("/problem")
-	public String problem() {
-		return "problem.html";
-	}
+	
 	@GetMapping("/submission")
 	public String submission() {
 		return "submission.html";
