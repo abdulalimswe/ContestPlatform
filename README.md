@@ -33,5 +33,5 @@
 ### Problem Page
 ![Problem](./img/problem.png)
 ### Add Problem Page
-![AddProblem](./img/createProblem.PNG)
+![AddProblem](./img/createProblem.png)
 
