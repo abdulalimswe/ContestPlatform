@@ -28,10 +28,10 @@
 ![SignIn](./img/logIn.png)
 ### SignUp
 ![SignUp](./img/register.png)
-### ProblemSet
-![Problem](./img/problem.png)
+### Create Problem Page
+![AddProblem](./img/createProblem.png)
+### Problem List
+![ProblemList](./img/problem.png)
 ### Problem Page
 ![Problem](./img/problem.png)
-### Add Problem Page
-![AddProblem](./img/createProblem.png)
 
