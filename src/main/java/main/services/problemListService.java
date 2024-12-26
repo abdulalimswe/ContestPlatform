@@ -12,15 +12,15 @@ public class problemListService {
 	@Autowired
 	private problemListRepository plRepo;
 	
-	public void save(problemSetub p) {
-		plRepo.save(p);
+	public problemSetub save(problemSetub p) {
+		return plRepo.save(p);
 	}
 	
-	public List<problemSetub> getAllProblem(){
+	public List<problemSetub> findAll(){
 		return plRepo.findAll();
 	}
 	
-	public problemSetub getProblemSetubById(Long id) {
+	public problemSetub findById(Long id) {
 		return plRepo.findById(id).get();
 	}
 
