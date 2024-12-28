@@ -5,25 +5,27 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import Header from './components/Header/Header';
-import createProblem from './components/Pages/createProblem';
+import Home from './components/Pages/Home';
 import Footer from './components/Footer/Footer'
 import Problem from './components/Pages/problem';
+import ViewProblem from './components/Pages/viewproblem';
+import Profile from './components/Pages/profile';
+import Compiler from './compiler/compiler';
 
 
 function App() {
   return (
-    <div>
-      <Header/>
       <Router>
-        
+        <Header/>
         <Routes>
+          <Route path="/" element={<Home/>}/>
           <Route path="/problem" element={<Problem/>}/>
-          <Route path="/createproblem" element={ <createProblem /> } />
-          <Route path="/viewproblem" element={ <viewProblem /> } />
+          <Route path="/viewproblem" element={<ViewProblem/>}/>
+          <Route path="/profile" element={ <Profile /> } />
+          <Route path="/footer" element={<Footer/>}/>
+          <Route path="/compiler" element={<Compiler/>}/>
         </Routes>
       </Router>
-      <Footer/>
-    </div>
   );
 }
 
