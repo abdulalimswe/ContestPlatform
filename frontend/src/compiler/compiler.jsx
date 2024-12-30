@@ -4,6 +4,7 @@ import CodeEditor from '@uiw/react-textarea-code-editor';
 import { useEffect } from 'react';
 import  compilerDefultCode  from './compilerDefultCode';
 
+
 const OnlineCompiler = () => {
   const [code, setCode] = useState('');
   const [language, setLanguage] = useState('cpp');
@@ -15,6 +16,7 @@ const OnlineCompiler = () => {
   useEffect(() => {
     setCode(compilerDefultCode[language]);
   }, [language]);
+
 
   const handleCompile = async () => {
     startTransition(async () => {

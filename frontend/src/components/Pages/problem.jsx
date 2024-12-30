@@ -32,9 +32,10 @@ const Problem =()=>{
                             <td>{problem.id}</td>
                             <td>{problem.title}</td>
                             <td>
-                                {/* <Link to={`/viewProblems/${p.id}`} className="btn btn-danger">view</Link> */}
+                                <Link to={`/viewProblem/${problem.id}`}  className="btn btn-success mx-2">view</Link>
+                                <Link to={`/delete/${problem.id}`} className="btn btn-danger mx-2">Delete</Link>
+                                <Link to={`/createProblem/${problem.id}`} state={{action:"update", problem:problem}} className="btn btn-warning mx-2">Update</Link>
                             </td>
-                            {/* <td><a href="@{/viewProblems/{id}(id=${p.id})}" class="btn btn-secondary btn-sm">View</a></td> */}
                         </tr>
                     );
                 })}
