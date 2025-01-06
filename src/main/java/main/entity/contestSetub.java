@@ -3,11 +3,21 @@ package main.entity;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import java.util.List;
+
+import main.entity.contest.contestProblemSetub;
+
 
 
 @Entity
@@ -21,6 +31,13 @@ public class contestSetub {
 	private LocalDate date;
 	private LocalTime time;
 	private int duration;
+	
+
+	@OneToMany(mappedBy = "contestsetub", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonManagedReference
+	
+	private List<contestProblemSetub> contestProblems;
+	
 	public Long getId() {
 		return id;
 	}
@@ -51,19 +68,27 @@ public class contestSetub {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	public contestSetub(Long id, String name, LocalDate date, LocalTime time, int duration) {
+
+	public contestSetub() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public List<contestProblemSetub> getContestProblems() {
+		return contestProblems;
+	}
+	public void setContestProblems(List<contestProblemSetub> contestProblems) {
+		this.contestProblems = contestProblems;
+	}
+	public contestSetub(Long id, String name, LocalDate date, LocalTime time, int duration,
+			List<contestProblemSetub> contestProblems) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.date = date;
 		this.time = time;
 		this.duration = duration;
+		this.contestProblems = contestProblems;
 	}
-	public contestSetub() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
 	
 	
 

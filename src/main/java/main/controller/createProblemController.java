@@ -42,13 +42,15 @@ public class createProblemController {
 	
 	@PutMapping("/update")
 	problemSetub updateProblemById(@RequestParam Long id, @RequestBody problemSetub p) {
-		return service.save(id,p);
+		return service.save(p);
 	}
 	
 	@DeleteMapping("/delete")
 	void deleteProblemById(@RequestParam Long id){
 		service.deleteById(id);
 	}
+	
+	
 	
 	
 }

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import main.entity.contestSetub;
-import main.entity.problemSetub;
+import main.entity.contest.contestProblemSetub;
 import main.repository.contestListRepository;
 
 @Service
@@ -40,8 +40,10 @@ public class contestListService {
 		contestRepo.deleteById(id);
 		
 	}
-	
-	
-	
+
+
+//	public List<contestProblemSetub> getProblemsByContest(Long contestId) {
+//		return contestRepo.getContestProblems(contestId);
+//	}
 	
 }

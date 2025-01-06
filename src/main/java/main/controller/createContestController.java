@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import main.entity.contestSetub;
-import main.entity.problemSetub;
+import main.entity.contest.contestProblemSetub;
 import main.services.contestListService;
 
 @RestController
@@ -31,6 +31,13 @@ public class createContestController {
 	
 	@PostMapping("/saveContest")
 	contestSetub addContest(@RequestBody contestSetub p) {
+		if (p.getContestProblems() != null) {
+	        for (contestProblemSetub problem : p.getContestProblems()) {
+	            if (problem != null) {
+	                problem.setContestsetub(p);
+	            }
+	        }
+	    }
 		return service.save(p);
 	}
 	
@@ -43,7 +50,14 @@ public class createContestController {
 	contestSetub getContestById(@PathVariable Long id) {
 		return service.findById(id);
 	}
-	
+    
+//    @GetMapping("/getContest/{id}/problems")
+//    public List<contestProblemSetub> getProblemsByContestId(@PathVariable Long contestId) {
+//        return service.getProblemsByContest(contestId);
+//    }
+//   
+    
+    
 	@PutMapping("/updateContest")
 	contestSetub updateContestById(@RequestParam Long id, @RequestBody contestSetub p) {
 		return service.save(id,p);

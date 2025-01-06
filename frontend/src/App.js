@@ -14,6 +14,9 @@ import Compiler from './compiler/compiler';
 import CreateProblem from './components/Pages/createProblem';
 import CreateContest from './components/Pages/Contest/ContestForm';
 import ContestList from './components/Pages/Contest/ContestList';
+import HomeContestPage from './components/Pages/Contest/HomeContestPage';
+import ContestProblemList from './components/Pages/Contest/ContestProblemList';
+import ContestProblem from './components/Pages/Contest/ContestProblem'
 
 
 function App() {
@@ -30,6 +33,9 @@ function App() {
           <Route path="/compiler" element={<Compiler/>}/>
           <Route path="/CreateProblem" element={<CreateProblem/>}/>
           <Route path="/createcontest" element={<CreateContest/>}/>
+          <Route path="/homecontestpage/:id" element={<HomeContestPage/>}/>
+          <Route path="/contestproblemlist/:id" element={<ContestProblemList/>}/>
+          <Route path="/:id/contestProblem" element={<ContestProblem/>}/>
         </Routes>
       </Router>
   );
