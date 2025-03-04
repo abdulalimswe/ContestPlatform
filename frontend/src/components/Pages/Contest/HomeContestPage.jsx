@@ -65,13 +65,11 @@ const ContestHomePage = () => {
                             <div className="pt-3">
                                 <h6>Disclaimer</h6>
                                 <p>
-                                    The contents of this contest, as prepared by its organizer, may
-                                    not have been reviewed by CoderOJ and does not necessarily
-                                    represent CoderOJ's views.
+                                    The contents of this contest, as prepared by its organizer.
                                 </p>
                             </div>
                             <div className="pt-5">
-                                <button className="btn btn-success mx-2" onClick={() => navigate(`/standings/${id}`)}>Standings</button>
+                                <button className="btn btn-success mx-2" onClick={() => navigate(`/contestStanding`)}>Standings</button>
                                 <button className="btn btn-info" onClick={() => navigate(`/contestproblemlist/${id}`)} >
                                    Contest Arena
                                 </button>

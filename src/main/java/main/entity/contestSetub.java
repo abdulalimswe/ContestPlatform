@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,32 +15,53 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.List;
 
 import main.entity.contest.contestProblemSetub;
 
 
 
+
 @Entity
 @Table(name="contest")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class contestSetub {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
+	
 	private String name;
+
 	private LocalDate date;
+
 	private LocalTime time;
+
 	private int duration;
 	
 
 	@OneToMany(mappedBy = "contestsetub", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonManagedReference
-	
 	private List<contestProblemSetub> contestProblems;
 	
-	public Long getId() {
-		return id;
+//	@ManyToOne
+//	@JoinColumn(name = "user_id", nullable = false)
+//	@JsonBackReference
+//	private User user;
+
+	public List<contestProblemSetub> getContestProblems() {
+		return contestProblems;
+	}
+	public void setContestProblems(List<contestProblemSetub> contestProblems) {
+		this.contestProblems = contestProblems;
 	}
 	public void setId(Long id) {
 		this.id = id;
@@ -68,16 +90,8 @@ public class contestSetub {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-
-	public contestSetub() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public List<contestProblemSetub> getContestProblems() {
-		return contestProblems;
-	}
-	public void setContestProblems(List<contestProblemSetub> contestProblems) {
-		this.contestProblems = contestProblems;
+	public Long getId() {
+		return id;
 	}
 	public contestSetub(Long id, String name, LocalDate date, LocalTime time, int duration,
 			List<contestProblemSetub> contestProblems) {
@@ -89,7 +103,10 @@ public class contestSetub {
 		this.duration = duration;
 		this.contestProblems = contestProblems;
 	}
-	
+	public contestSetub() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

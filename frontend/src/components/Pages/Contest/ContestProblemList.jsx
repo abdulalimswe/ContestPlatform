@@ -25,7 +25,7 @@ const ContestProblemList =()=>{
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th className="text-center" scope="col">Title</th>
+					<th className="text-center" scope="col">Problems</th>
 				</tr>
 			</thead>
 			<tbody>

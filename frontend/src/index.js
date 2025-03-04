@@ -1,20 +1,39 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
+import { useState, useEffect } from "react";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { AuthContext } from "./authContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const AppWrapper = () => {
+  const [login, setLogin] = useState(false);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("login")) === true) setLogin(true);
+    return () => {};
+  }, []);
+
+  return (
+    <React.StrictMode>
+      <AuthContext.Provider value={{ login, setLogin }}>
+        <App />
+      </AuthContext.Provider>
+    </React.StrictMode>
+  );
+};
+
+window.addEventListener('error', function (event) {
+  if (event.message.includes('SyntaxError')) {
+    console.error('Caught an error:', event.error);
+    event.preventDefault();
+  }
+});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<AppWrapper />);
 reportWebVitals();

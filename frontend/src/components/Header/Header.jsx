@@ -34,7 +34,7 @@ const Header = () =>{
             </ul>
             <div class="mx-5" >
                 {/* <button type="submit" action="/login"  class="btn btn-secondary mr-4">LogIn</button> */}
-                <Link class="btn btn-secondary px-3" to="/login" role="button">LogIn</Link>
+                <Link class="btn btn-secondary px-3" to="/signin" role="button">SignIn</Link>
             </div>
             </div>
         </div>
